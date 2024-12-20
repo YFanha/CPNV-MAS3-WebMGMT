@@ -1,7 +1,6 @@
 import datetime
 import io
 import base64
-import matplotlib.pyplot as plt
 import json
 from flask import Flask, render_template, request, redirect
 
