@@ -1,0 +1,17 @@
+nav a {
+    color: #d64161;
+    font-size: 2em;
+    margin-left: 50px;
+    text-decoration: none;
+}
+/* .content{
+    display: grid;
+    grid-template-columns: auto 60% auto;
+}
+.item{
+    text-align: center;
+    border-color: black;
+    background-color: #d64161;
+    border: 1px solid black;
+    margin: 5px;
+} */
