@@ -26,48 +26,42 @@ function removeRow(button) {
 }
 
 function addRow() {
-    const tableBody = document.querySelector("table tbody"); // Select the table body
-    const rows = tableBody.querySelectorAll("tr"); // Get all rows in the table body
+    const tableBody = document.querySelector("table tbody");
+    const rows = tableBody.querySelectorAll("tr"); 
     
-    // Determine the new row's ID by checking the last row's ID
     let newId = 1; // Default to 1 if no rows exist
 
     if (rows.length > 0) {
-        // Get the ID of the last row
         const lastRow = rows[rows.length - 1];
         const lastId = lastRow.querySelector('input[name="id"]')?.value || 0;
-        newId = parseInt(lastId) + 1; // Increment the last ID by 1 for the new row
+        newId = parseInt(lastId) + 1; 
     }
 
-    // Check if the newId already exists in any of the rows
     let idExists = false;
     do {
         idExists = false;
-        // Iterate over each row to check if the newId already exists
         for (let row of rows) {
             const existingId = row.querySelector('input[name="id"]')?.value;
             if (existingId == newId) {
-                idExists = true; // If the ID exists, flag it
+                idExists = true; 
                 break;
             }
         }
         if (idExists) {
-            newId++; // Increment the ID if it already exists
+            newId++; 
         }
-    } while (idExists); // Continue checking until a unique ID is found
+    } while (idExists); 
 
-    // Create a new row element
     const newRow = document.createElement("tr");
-    newRow.classList.add("table-primary")
+    newRow.classList.add("table-success")
 
-    // Set the HTML content of the new row
     newRow.innerHTML = `
         <input type="hidden" name="id" value="${newId}">  <!-- Set the ID of the new row -->
         <th class="text-center">
-            <input type="text" class="form-control border-0 bg-transparent text-center p-0 text-center fw-bold" name="name" value="">
+            <input type="text" class="form-control border-0 bg-transparent text-center p-0 fw-bold" name="name" value="" placeholder="Enterprise name">
         </th>
         <td class="text-center">
-            <input type="number" class="form-control border-0 bg-transparent text-center p-0 transparent-input text-center" name="nbr" value="">
+            <input type="number" class="form-control border-0 bg-transparent text-center p-0" name="nbr" value="" placeholder="1">
         </td>
         <td class="text-center">
             <button type="button" class="btn btn-danger btn-sm w-100 h-100 p-2" onclick="removeRow(this)">

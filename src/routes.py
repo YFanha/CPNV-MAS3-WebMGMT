@@ -29,8 +29,6 @@ def save_data():
     nbrs = request.form.getlist('nbr')
     client_id = request.form.getlist('id')
 
-    # print(f"=======>{request}")
-
     data = {
         "clients" : [
             {"id": client_id, "name": name, "nbr_vms": nbr}

@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 
-{% block title %} Home {% endblock %}
+{% block title %} Liste {% endblock %}
 
 {% block content %}
 <div class="item my-4 mx-auto w-100">
     <!-- <h2 class="mb-3 text-center">Client Virtual Machine Needs</h2> -->
-    <div class="table-responsive shadow-sm rounded">
+    <div class="table-responsive shadow rounded pb-3 bg-light-grey">
         <form action="/edit/" method="POST">
             <table class="table table-bordered table-hover table-striped align-middle table-dark">
                 <thead>
@@ -20,7 +20,7 @@
                         <td class="text-center w-50">
                             {{client['name']}} ({{client['id']}})
                         </td>
-                        <td class="text-center">
+                        <td class="text-center w-50 bg-green">
                            {{client['nbr_vms']}}
                         </td>
                     </tr>
@@ -28,7 +28,7 @@
                 </tbody>
             </table>
             <div class="d-flex justify-content-center">
-                <button type="submit" class="mx-auto btn btn-lg btn-primary w-25 p-3"><i class="bi bi-pencil-square"> Edit</i></button>
+                <button type="submit" class="mx-auto btn btn-lg btn-primary w-25 p-3 fw-semibold"><i class="bi bi-pencil-square"> Edit</i></button>
             </div>
         </form>
     </div>

@@ -1,17 +1,42 @@
 nav a {
-    color: #d64161;
-    font-size: 2em;
-    margin-left: 50px;
+    /* color: #4ECCA3; */
+    font-size: 2.2em;
+    /* margin-left: 50px; */
     text-decoration: none;
 }
-/* .content{
-    display: grid;
-    grid-template-columns: auto 60% auto;
+
+.color-green {
+    color: #4ECCA3;
 }
-.item{
-    text-align: center;
-    border-color: black;
-    background-color: #d64161;
-    border: 1px solid black;
-    margin: 5px;
-} */
+
+.bg-green {
+    background-color: #4ECCA3;
+}
+
+.color-dark-grey {
+    color: #24292e;
+}
+
+.bg-dark-grey {
+    background-color: #24292e;
+}
+
+.color-light-grey {
+    color: #393E46;
+}
+
+.bg-light-grey {
+    background-color: #393E46;
+}
+
+.color-light {
+    color: #EEEEEE;
+}
+
+.bg-light {
+    background-color: #EEEEEE;
+}
+
+ .bg-light-custom {
+    background-color: #4C585B;
+ }
