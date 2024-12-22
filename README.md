@@ -16,5 +16,5 @@ pip install pipenv
 cd src
 pipenv install
 
-python3 ..\run.py
+python3 run.py
 ```
