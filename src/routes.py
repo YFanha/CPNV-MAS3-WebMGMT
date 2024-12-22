@@ -1,22 +1,21 @@
-import datetime
-import io
-import base64
 import json
 from flask import Flask, render_template, request, redirect
+
+DATA_FILE = "data.json"
 
 app = Flask(__name__,static_folder="static")
 # app.config.from_object('config')
 
 @app.route('/')
 def index():
-    with open('terraform.json', 'r') as file:
+    with open(DATA_FILE, 'r') as file:
         data = json.load(file)
     return render_template('index.html', clients=data['clients'])
 
 
 @app.route('/edit/', methods=['GET', 'POST'])
 def edit_data():
-    with open('terraform.json', 'r') as file:
+    with open(DATA_FILE, 'r') as file:
         data = json.load(file)
     return render_template('edit.html', clients=data['clients'])
 
@@ -39,7 +38,7 @@ def save_data():
         ]
     }
 
-    with open('terraform.json', 'w') as file:
+    with open(DATA_FILE, 'w') as file:
         json.dump(data, file, ensure_ascii=False, indent=4)
 
     return redirect("/")
