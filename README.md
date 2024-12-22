@@ -13,16 +13,8 @@ docker-compose up -d
 ### pipenv
 ```PowerShell
 pip install pipenv
-
 cd src
 pipenv install
 
-python3 run.py
-```
-### pip
-```Powershell
-cd src
-pip install -r requirements.txt
-
-python3 run.py
+python3 ..\run.py
 ```
