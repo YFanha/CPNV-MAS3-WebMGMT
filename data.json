@@ -1,0 +1,14 @@
+{
+    "clients": [
+        {
+            "id": "0",
+            "name": "Test",
+            "nbr_vms": "1"
+        },
+        {
+            "id": "1",
+            "name": "Test2",
+            "nbr_vms": "9"
+        }
+    ]
+}
