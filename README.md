@@ -9,7 +9,7 @@
 ```docker
 docker-compose up -d
 ```
-## Hosts
+## Host
 ### pipenv
 ```PowerShell
 pip install pipenv
