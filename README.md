@@ -8,7 +8,7 @@
 ## Docker
 Update the ```data.json``` source file with your ```terraform.tfvars.json``` file.
 ```docker
-docker-compose up -d
+docker-compose up -d --build
 ```
 ## Host
 ### pipenv
