@@ -20,6 +20,9 @@ Setup the public key to allow docker container to launch command from SSH
 cat /tmp/docker_ssh_key.pub >> ~/.ssh/authorized_keys
 ```
 
+### SSH command 
+![schema](assets/schema.png)
+
 ## Host
 ### pipenv
 ```PowerShell
