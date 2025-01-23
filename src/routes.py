@@ -1,17 +1,22 @@
 import json
 from flask import Flask, render_template, request, redirect
-import subprocess
+from .ssh_commands import run_terraform_over_ssh
+import os
 
 DATA_FILE = "data.json"
+HOST = os.environ["HOST"]
+TERRAFORM_DIR = os.environ["TERRAFORM_DIR"]
+USERNAME = os.environ["USERNAME"]
+PRIVATE_KEY_PATH = "/etc/ssh/id_ssh_key"
 
 app = Flask(__name__,static_folder="static")
-# app.config.from_object('config')
 
 @app.route('/')
 def index():
     with open(DATA_FILE, 'r') as file:
         data = json.load(file)
-    return render_template('index.html', clients=data['clients'])
+    
+    return render_template('index.html', clients=data['clients'], host=HOST)
 
 
 @app.route('/edit/', methods=['GET', 'POST'])
@@ -19,10 +24,6 @@ def edit_data():
     with open(DATA_FILE, 'r') as file:
         data = json.load(file)
     return render_template('edit.html', clients=data['clients'])
-
-@app.route('/about/')
-def about():
-    return render_template('about.html')
 
 def error(error):
     return render_template('error.html', error=error)
@@ -44,7 +45,7 @@ def save_data():
         with open(DATA_FILE, 'w') as file:
             json.dump(data, file, ensure_ascii=False, indent=4)
 
-        subprocess.run(["terraform", "apply", "--auto-approve"], check=True)
+        run_terraform_over_ssh(HOST, PRIVATE_KEY_PATH, TERRAFORM_DIR, USERNAME)
         return redirect("/")
     except Exception as e:
         return error(str(e))

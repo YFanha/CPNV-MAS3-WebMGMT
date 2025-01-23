@@ -7,6 +7,10 @@ services:
       - "8080:8080" 
     volumes:
       - type: bind
-        source: ./terraform.tfvars.json
+        source: data.json
         target: /app/data.json
       - /etc/ssh/id_ssh_key.pub:/tmp/docker_ssh_key.pub
+    environment:
+      - HOST=172.10.10.5 # Host IP to connect to SSH (who runs terraform and ansible)
+      - USERNAME=root # SSH username
+      - TERRAFORM_DIR=/app/yann_anthony/terraform # Terraform directory

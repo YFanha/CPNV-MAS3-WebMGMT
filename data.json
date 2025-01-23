@@ -1,0 +1,29 @@
+{
+    "clients": [
+        {
+            "id": "1",
+            "name": "ent1",
+            "nbr_vms": "1"
+        },
+        {
+            "id": "2",
+            "name": "ent2",
+            "nbr_vms": "1"
+        },
+        {
+            "id": "32",
+            "name": "ent3",
+            "nbr_vms": "9"
+        },
+        {
+            "id": "33",
+            "name": "test",
+            "nbr_vms": "1"
+        },
+        {
+            "id": "34",
+            "name": "test3",
+            "nbr_vms": "4"
+        }
+    ]
+}
