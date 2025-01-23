@@ -1,4 +1,6 @@
 # CPNV-MAS3-WebMGMT
+*This project complete the https://github.com/CPNV-ES-MAS3/yann_anthony project. It provides an simple web interface to edit a json list of clients and update their infrastructure with terraform (terraform apply over ssh command)*
+![¨webui](assets/webui.png)
 # Requirements
 - Python=>3.9.5
 - Flask=>3.1.0
