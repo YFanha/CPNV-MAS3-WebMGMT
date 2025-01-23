@@ -7,7 +7,7 @@ services:
       - "8080:8080" 
     volumes:
       - type: bind
-        source: data.json
+        source: ../yann_anthony/terraform/terraform.tfvars.json
         target: /app/data.json
       - /etc/ssh/id_ssh_key.pub:/tmp/docker_ssh_key.pub
     environment:
