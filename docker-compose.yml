@@ -14,3 +14,4 @@ services:
       - HOST=172.10.10.5 # Host IP to connect to SSH (who runs terraform and ansible)
       - USERNAME=root # SSH username
       - TERRAFORM_DIR=/app/yann_anthony/terraform # Terraform directory
+      - SOPS_AGE_KEY_FILE=/app/yann_anthony/terraform/key.txt # SOPS key file
