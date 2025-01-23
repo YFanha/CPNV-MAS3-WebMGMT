@@ -40,3 +40,7 @@ nav a {
  .bg-light-custom {
     background-color: #4C585B;
  }
+
+ .text-red {
+    color: #dc3545; /* Bootstrap Danger Color */
+}
