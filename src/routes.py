@@ -8,6 +8,7 @@ HOST = os.environ["HOST"]
 TERRAFORM_DIR = os.environ["TERRAFORM_DIR"]
 USERNAME = os.environ["USERNAME"]
 PRIVATE_KEY_PATH = "/etc/ssh/id_ssh_key"
+SOPS_KEY_FILE = os.environ["SOPS_AGE_KEY_FILE"]
 
 app = Flask(__name__,static_folder="static")
 
@@ -45,7 +46,7 @@ def save_data():
         with open(DATA_FILE, 'w') as file:
             json.dump(data, file, ensure_ascii=False, indent=4)
 
-        run_terraform_over_ssh(HOST, PRIVATE_KEY_PATH, TERRAFORM_DIR, USERNAME)
+        run_terraform_over_ssh(HOST, PRIVATE_KEY_PATH, TERRAFORM_DIR, USERNAME, sops_key_file=SOPS_KEY_FILE)
         return redirect("/")
     except Exception as e:
         return error(str(e))
