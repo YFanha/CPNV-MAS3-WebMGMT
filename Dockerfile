@@ -6,6 +6,10 @@ WORKDIR /app
 COPY src /app/src
 
 RUN pip install --no-cache-dir -r src/requirements.txt
+RUN apk add --no-cache openssh openrc \
+    && ssh-keygen -t ed25519 -b 4096 -f /etc/ssh/id_ssh_key -N "" \
+    && chmod 600 /etc/ssh/id_ssh_key \
+    && chmod 644 /etc/ssh/id_ssh_key.pub
 
 COPY run.py .
 
