@@ -9,6 +9,4 @@ services:
       - type: bind
         source: ./terraform.tfvars.json
         target: /app/data.json
-      - type: bind
-        source: /etc/ssh/id_ssh_key.pub
-        target: /tmp/docker_ssh_key.pub
+      - /etc/ssh/id_ssh_key.pub:/tmp/docker_ssh_key.pub
