@@ -15,3 +15,4 @@ def run_terraform_over_ssh(host, private_key_path, terraform_dir, username, sops
         text=True,
         capture_output=True
     )
+    print(str(result))

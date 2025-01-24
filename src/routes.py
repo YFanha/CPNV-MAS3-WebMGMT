@@ -46,6 +46,7 @@ def save_data():
         with open(DATA_FILE, 'w') as file:
             json.dump(data, file, ensure_ascii=False, indent=4)
 
+        print("calling terraform")
         run_terraform_over_ssh(HOST, PRIVATE_KEY_PATH, TERRAFORM_DIR, USERNAME, sops_key_file=SOPS_KEY_FILE)
         return redirect("/")
     except Exception as e:
