@@ -1,6 +1,5 @@
 import json
 from flask import Flask, render_template, request, redirect
-from .ssh_commands import run_terraform_over_ssh
 import os
 import subprocess
 
