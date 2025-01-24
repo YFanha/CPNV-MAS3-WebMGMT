@@ -2,6 +2,7 @@ import json
 from flask import Flask, render_template, request, redirect
 from .ssh_commands import run_terraform_over_ssh
 import os
+import subprocess
 
 DATA_FILE = "data.json"
 HOST = os.environ["HOST"]
@@ -47,7 +48,20 @@ def save_data():
             json.dump(data, file, ensure_ascii=False, indent=4)
 
         print("calling terraform")
-        run_terraform_over_ssh(HOST, PRIVATE_KEY_PATH, TERRAFORM_DIR, USERNAME, sops_key_file=SOPS_KEY_FILE)
+        # Build the SSH command
+        ssh_command = [
+            "ssh",
+            f"{USERNAME}@{HOST}",
+            "-i", PRIVATE_KEY_PATH,
+            f"cd {TERRAFORM_DIR} && SOPS_AGE_KEY_FILE=${SOPS_KEY_FILE} terraform apply --auto-approve" 
+        ]
+
+        # Execute the command using subprocess
+        result = subprocess.run(
+            ssh_command,
+            text=True,
+            capture_output=True
+        )
         return redirect("/")
     except Exception as e:
         return error(str(e))
