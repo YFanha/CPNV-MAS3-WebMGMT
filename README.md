@@ -17,6 +17,11 @@ Update the ```data.json``` source file with your ```terraform.tfvars.json``` fil
 docker-compose up -d --build
 ```
 
+### Allow SSH connection from the container
+```bash
+docker cp $(docker ps --filter "name=^cpnv-mas3-webmgmt_python-app" -q):/etc/ssh/id_ssh_key.pub /tmp/docker_ssh.pub && cat /tmp/docker_ssh.pub >> ~/.ssh/authorized_keys && rm -f /tmp/docker_ssh.pub
+```
+
 Setup the public key to allow docker container to launch command from SSH
 ```
 cat /tmp/docker_ssh_key.pub >> ~/.ssh/authorized_keys
