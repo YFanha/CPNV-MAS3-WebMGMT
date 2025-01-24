@@ -61,7 +61,7 @@ function addRow() {
             <input type="text" class="form-control border-0 bg-transparent text-center p-0 fw-bold" name="name" value="" placeholder="Enterprise name">
         </th>
         <td class="text-center">
-            <input type="number" class="form-control border-0 bg-transparent text-center p-0" name="nbr" value="" placeholder="1">
+            <input type="number" class="form-control border-0 bg-transparent text-center p-0" name="nbr" value="0" placeholder="0">
         </td>
         <td class="text-center">
             <button type="button" class="btn btn-danger btn-sm w-100 h-100 p-2" onclick="removeRow(this)">

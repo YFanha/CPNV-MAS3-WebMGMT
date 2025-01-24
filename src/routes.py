@@ -47,17 +47,16 @@ def save_data():
         with open(DATA_FILE, 'w') as file:
             json.dump(data, file, ensure_ascii=False, indent=4)
 
-        print("calling terraform")
         # Build the SSH command
         ssh_command = [
             "ssh",
             f"{USERNAME}@{HOST}",
             "-i", PRIVATE_KEY_PATH,
-            f"cd {TERRAFORM_DIR} && SOPS_AGE_KEY_FILE=${SOPS_KEY_FILE} terraform apply --auto-approve" 
+            f"cd {TERRAFORM_DIR} && SOPS_AGE_KEY_FILE={SOPS_KEY_FILE} terraform apply --auto-approve" 
         ]
 
         # Execute the command using subprocess
-        result = subprocess.run(
+        subprocess.run(
             ssh_command,
             text=True,
             capture_output=True
